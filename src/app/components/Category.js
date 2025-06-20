@@ -2,7 +2,7 @@ import {useState} from "react";
 import Loading from "@/app/components/Loading";
 import { useRouter } from "next/navigation";
 
-export default function Category({category, setFilteredCategory}){
+export default function Category({category}){
     const router = useRouter();
     const [openCategory, setOpenCategory] = useState(null);
     if (!category) {
@@ -61,8 +61,8 @@ export default function Category({category, setFilteredCategory}){
                             <div className="category-item"
                                  key={item.id}
                                  onClick={() => {
-                                     setFilteredCategory(item.categoryFilter);
-                                     // router.push(`/category/${item.categoryFilter}`);
+                                     // setFilteredCategory(item.categoryFilter);
+                                     router.push(`/category/${item.categoryFilter}`);
                                  }}
                             >
                                 {item.image?.original?.src && (
